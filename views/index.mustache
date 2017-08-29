@@ -3,11 +3,34 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
   </head>
   <body>
-    <h1>This is a test!</h1>
+    <div class = 'header'>
+      <h1>Postcard Collection</h1>
+        <p>
+          <form action = "/new" method = "post">
+            <button type = "submit">Add New</button>
+          </form>
+      </p>
+    </div>
+    <div class = 'wrapper'>
     {{#cards}}
-    {{name}}
+    <div class = "box">
+      <h2>{{name}}</h2>
+      {{#location}}
+      <p>{{state}} {{country}}</p>
+      {{/location}}
+      <p>From: {{whoFrom}}</p>
+
+    <form action = '/edit' method="post">
+      <button type="submit">Edit</button>
+    </form>
+    <form action = '/' method = "post">
+      <button type="submit">Delete</button>
+    </form>
+  </div>
     {{/cards}}
+  </div>
   </body>
 </html>

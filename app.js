@@ -11,6 +11,7 @@ app.engine('mustache', mustache());
 app.set('views', './views');
 app.set('view engine', 'mustache');
 
+app.use(express.static(__dirname + '/public'));
 
 
 app.get('/', function(req,res){
