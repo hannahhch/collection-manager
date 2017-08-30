@@ -37,7 +37,7 @@ app.get('(/:id/)', function(req,res){
 });
 
 //WORKING ON EDITING
-app.get("(/:id/edit)", function(req,res){
+app.get("/:id/edit", function(req,res){
   let cards = Postcard.findOne({_id: req.params.id})
   .then(function(cards){
     res.render('edit_card', {cards:cards});

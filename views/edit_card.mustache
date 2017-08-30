@@ -20,7 +20,7 @@
         </div>
         <div class = 'header'>
           {{#cards}}
-          <h1>EDIT {{name}}</h1>
+          <h1>EDIT: {{name}}</h1>
         </div>
         <div class = 'new-box-wrapper'>
         <form action = "/{{_id}}/edit" method = "post">
@@ -35,7 +35,7 @@
             <input type="text" id="state" name="state" placeholder="{{state}}">
           </p>
           <p>
-            <input type = "text" id = "country" name = "country:" placeholder="{{country}}">
+            <input type = "text" id = "country" name = "country" placeholder="{{country}}">
           </p>
           <p>
             <button type = "submit">submit</button>
