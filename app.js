@@ -25,7 +25,15 @@ app.get('/new', function(req,res){
 })
 
 app.post('/new', function(req,res){
-  Postcard.create(req.body)
+  Postcard.create({
+    "name":req.body.name,
+    "whoFrom":req.body.whoFrom,
+    "location":[{
+      "country": req.body.country,
+      "state": req.body.state
+    }]
+  });
+  
   .then(function(postcard){
     res.redirect('/');
   })
