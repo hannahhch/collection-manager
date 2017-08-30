@@ -1,0 +1,18 @@
+{{#postcard}}
+<h2>Location for {{name}}</h2>
+
+<form action="/{{_id}}/new_state/" method = "post">
+  <p>
+    <label for= "state">State: </label>
+    <input type = "text" name = "state"/>
+  </p>
+  <p>
+    <label for "country">Country: </label>
+    <input type="text" name = 'country'/>
+  </p>
+  <p>
+    <button type = "submit">Add Location</button>
+    <a href = "/{{_id}}" class = "button button-danger">Back to cards</a>
+  </p>
+</form>
+{{/postcard}}

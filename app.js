@@ -20,6 +20,47 @@ app.set('view engine', 'mustache');
 
 app.use(express.static(__dirname + '/public'));
 
+app.get('/new', function(req,res){
+  res.render('new_card');
+})
+
+app.post('/new', function(req,res){
+  Postcard.create(req.body)
+  .then(function(postcard){
+    res.redirect('/');
+  })
+  .catch(function(error){
+    let errorMsg;
+    if (error.code === DUPLICATE_RECORD_ERROR){
+      errorMsg = `The postcard name "${req.body.name}" has already been used.`
+    } else {
+      errorMsg = "You have encountered an unknown error."
+    }
+    res.render("new_card", {errorMsg:errorMsg});
+  })
+});
+
+app.get('/:id', function(req,res){
+  Postcard.findOne({_id: req.params.id}).then(function(postcard){
+    res.render("postcard", {postcard:postcard});
+  })
+})
+
+app.get('/:id/new_state', function(req,res){
+  Postcard.findOne({_id: req.params.id}).then(function(postcard){
+    res.render("new_state", {postcard:postcard});
+  })
+})
+
+app.post('/:id/new_state', function (req,res){
+  Postcard.findOne({_id: req.params.id}).then(function(postcard){
+    postcard.location.push(req.body);
+    postcard.save().then(function(){
+      res.render("new_state", {postcard:postcard});
+    })
+  })
+})
+
 
 app.get('/', function(req,res){
     Postcard.find({}).then(function(cards){
