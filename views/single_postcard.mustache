@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Postcard</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Open+Sans" rel="stylesheet">
+    <script src="https://use.fontawesome.com/ffa41e3f0d.js"></script>
+  </head>
+  <body>
+    <div class = "nav">
+        <div><p><a href = "http://localhost:3000/">
+          <i class="fa fa-home" aria-hidden="true"></i> Home</a></p></div>
+        <div><p><a href = "/new/">
+          <i class="fa fa-plus" aria-hidden="true"></i> New</a></p></div>
+        <div><p><a href = "#">
+          <i class="fa fa-map-marker" aria-hidden="true"></i> Map</a></p></div>
+        </div>
+    <div class = 'header'>
+      {{#cards}}
+
+      <h1>{{name}}</h1>
+    </div>
+    <div class = 'wrapper'>
+      <div class = "single-box">
+        {{#location}}
+        <p>{{state}}</p>
+        <p> {{country}}</p>
+        {{/location}}
+        <p><strong>From:</strong> {{whoFrom}}</p>
+        <form action = '/{{_id}}/edit' method="post">
+          <button type="submit">Edit</button>
+        </form>
+        <form action = '/{{_id}}/delete' method = "post">
+          <button type="submit">Delete</button>
+        </form>
+      </div>
+      {{/cards}}
+    </div>
+  </body>
+</html>

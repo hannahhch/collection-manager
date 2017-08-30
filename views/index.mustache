@@ -5,23 +5,27 @@
   <title>Postcard Collection</title>
 <link rel="stylesheet" href="/static/styles.css">
   <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Open+Sans" rel="stylesheet">
+  <script src="https://use.fontawesome.com/ffa41e3f0d.js"></script>
 </head>
 <body>
   <div class = "nav">
-    <div><p>You have __ postcards!</p></div>
-    <div><p><a href = "#">See the Map</a></p></div>
-    <div><p><a href = "/new/">Add New Postcard</a></p></div>
-    <div><p><a href = "#">Search</a></p></div>
-  </div>
+      <div><p><a href = "http://localhost:3000/">
+        <i class="fa fa-home" aria-hidden="true"></i> Home</a></p></div>
+      <div><p><a href = "/new/">
+        <i class="fa fa-plus" aria-hidden="true"></i> New</a></p></div>
+      <div><p><a href = "#">
+        <i class="fa fa-map-marker" aria-hidden="true"></i> Map</a></p></div>
+      </div>
   <div class = 'header'>
     <h1>Postcard Collection</h1>
   </div>
   <div class = 'wrapper'>
     {{#cards}}
     <div class = "box">
-      <h2>{{name}}</h2>
+      <h2><a href = "http://localhost:3000/{{_id}}/">{{name}}</a></h2>
       {{#location}}
-      <p>{{state}}, {{country}}</p>
+      <p>{{state}}</p>
+      <p> {{country}}</p>
       {{/location}}
       <p><strong>From:</strong> {{whoFrom}}</p>
       <form action = '/{{_id}}/edit' method="post">
@@ -32,6 +36,9 @@
       </form>
     </div>
     {{/cards}}
+  </div>
+  <div class = "footer">
+    <div><h4>You have {{number}} postcards</h4></div>
   </div>
 </body>
 </html>

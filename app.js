@@ -9,6 +9,7 @@ const Postcard = require('./models/cards');
 const DUPLICATE_RECORD_ERROR = 11000;
 
 const mongoURL = 'mongodb://localhost:27017/test';
+
 mongoose.connect(mongoURL, {useMongoClient: true});
 mongoose.Promise = require('bluebird');
 
@@ -24,6 +25,27 @@ app.use('/static', express.static('static'));
 app.get('/new', function(req,res){
   res.render('new_card');
 })
+
+app.get('(/:id/)', function(req,res){
+    Postcard.findOne({_id:req.params.id}).then(function(cards){
+      res.render('single_postcard', {cards:cards});
+
+    })
+});
+
+//home page, get all post cards and display them
+app.get('/', function(req,res){
+  let number = Postcard.count()
+  let cards = Postcard.find()
+  //deals with two promises and turns into an array. Results is array that has number and cards data
+  Promise.all([number,cards]).then(function(results){
+    //render things in the array with the square brackets
+    res.render("index", {cards:results[1], number:results[0]});
+  })
+});
+
+
+
 
 //create a new postcard with the following information
 app.post('/new', function(req,res){
@@ -58,12 +80,9 @@ app.post('/:id/delete', function(req,res){
   })
 });
 
-//home page, get all post cards and display them
-app.get('/', function(req,res){
-  Postcard.find({}).then(function(cards){
-    res.render("index", {cards:cards});
-  })
-});
+
+
+
 
 module.exports = app;
 

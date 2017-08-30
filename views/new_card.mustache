@@ -3,14 +3,24 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>New Postcard</title>
-<link rel="stylesheet" href="/static/styles.css">
+    <title>New</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <script src="https://use.fontawesome.com/ffa41e3f0d.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Open+Sans" rel="stylesheet">
   </head>
   <body>
+    <div class = "nav">
+        <div><p><a href = "http://localhost:3000/">
+          <i class="fa fa-home" aria-hidden="true"></i> Home</a></p></div>
+        <div><p><a href = "/new/">
+          <i class="fa fa-plus" aria-hidden="true"></i> New</a></p></div>
+        <div><p><a href = "#">
+          <i class="fa fa-map-marker" aria-hidden="true"></i> Map</a></p></div>
+        </div>
     <header>
-      <h2>Add new postcard</h2>
+      <h2>Add a New Postcard to Your Collection!</h2>
     </header>
-    <div class = "new-wrapper">
+    <div class = "wrapper">
     <form action = "/new/" method = "post">
       <p>
         <label for 'name'>Name: </label>
@@ -21,10 +31,11 @@
         <input type = "text" id = "whoFrom" name = "whoFrom"/>
       </p>
       <p>
-        <label for "country">Country: </label>
-        <input type = "text" id = "country" name = "country">
         <label for="state">State: </label>
         <input type="text" id="state" name="state">
+        <label for "country">Country: </label>
+        <input type = "text" id = "country" name = "country">
+
       </p>
       <p>
         <button type = "submit">Add Postcard</button>
