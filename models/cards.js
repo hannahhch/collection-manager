@@ -1,3 +1,5 @@
+
+//mongoose schema 
 const mongoose = require('mongoose');
 
 const postcardSchema = new mongoose.Schema({

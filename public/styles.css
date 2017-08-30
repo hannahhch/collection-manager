@@ -10,8 +10,26 @@
   width: 300px;
   height: 300px;
   text-align: center;
+  padding: 15px;
 }
 
 .header{
   text-align: center;
+}
+
+h1{
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 55px;
+  text-transform: uppercase;
+}
+
+h2{
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 25px;
+  text-transform: uppercase;
+}
+
+p{
+  font-family: 'Open Sans', sans-serif;
+
 }

@@ -1,34 +1,34 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
-  </head>
-  <body>
-    <div class = 'header'>
-      <h1>Postcard Collection</h1>
-        <p>
-          <a href = "/new/">Add New Postcard</a>
-      </p>
-    </div>
-    <div class = 'wrapper'>
+<head>
+  <meta charset="utf-8">
+  <title>Postcard Collection</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Open+Sans" rel="stylesheet">
+</head>
+<body>
+  <div class = 'header'>
+    <h1>Postcard Collection</h1>
+    <p>
+      <a href = "/new/">Add New Postcard</a>
+    </p>
+  </div>
+  <div class = 'wrapper'>
     {{#cards}}
     <div class = "box">
       <h2>{{name}}</h2>
       {{#location}}
-      <p>Location: {{state}}, {{country}}</p>
+      <p>{{state}}, {{country}}</p>
       {{/location}}
-      <p>From: {{whoFrom}}</p>
-
-    <form action = '/edit' method="post">
-      <button type="submit">Edit</button>
-    </form>
-    <form action = '/{{_id}}/delete' method = "post">
-      <button type="submit">Delete</button>
-    </form>
-  </div>
+      <p><strong>From:</strong> {{whoFrom}}</p>
+      <form action = '/{{_id}}/edit' method="post">
+        <button type="submit">Edit</button>
+      </form>
+      <form action = '/{{_id}}/delete' method = "post">
+        <button type="submit">Delete</button>
+      </form>
+    </div>
     {{/cards}}
   </div>
-  </body>
+</body>
 </html>

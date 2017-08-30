@@ -20,10 +20,12 @@ app.set('view engine', 'mustache');
 
 app.use(express.static(__dirname + '/public'));
 
+//get new post card page
 app.get('/new', function(req,res){
   res.render('new_card');
 })
 
+//create a new postcard with the following information
 app.post('/new', function(req,res){
   Postcard.create({
     "name":req.body.name,
@@ -32,11 +34,12 @@ app.post('/new', function(req,res){
       "country": req.body.country,
       "state": req.body.state
     }]
-  });
-  
+  })
+  //then redirect back home
   .then(function(postcard){
     res.redirect('/');
   })
+  //error handling
   .catch(function(error){
     let errorMsg;
     if (error.code === DUPLICATE_RECORD_ERROR){
@@ -48,14 +51,14 @@ app.post('/new', function(req,res){
   })
 });
 
+//stay on same page, and find the postcard to delete.
 app.post('/:id/delete', function(req,res){
   Postcard.deleteOne({_id:req.params.id}).then(function(postcard){
-    console.log(postcard);
     res.redirect('/');
   })
 });
 
-
+//home page, get all post cards and display them 
 app.get('/', function(req,res){
   Postcard.find({}).then(function(cards){
     res.render("index", {cards:cards});
