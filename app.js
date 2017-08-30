@@ -37,10 +37,29 @@ app.get('(/:id/)', function(req,res){
 });
 
 //WORKING ON EDITING
-app.post("(/:id/edit)", function(req,res){
-  Postcard.findOne({_id: req.params.id}).then(function(cards){
+app.get("(/:id/edit)", function(req,res){
+  let cards = Postcard.findOne({_id: req.params.id})
+  .then(function(cards){
     res.render('edit_card', {cards:cards});
   })
+});
+
+app.post("(/:id/edit)", function(req,res){
+  //let cards = Postcard.findOne({_id: req.params.id})
+  Postcard.updateOne(
+    {_id: req.params.id},
+    {
+      "name":req.body.name,
+      "whoFrom":req.body.whoFrom,
+      "location":[{
+        "country": req.body.country,
+        "state": req.body.state
+      }]
+    }
+  )
+  .then(function (update) {
+    res.redirect('/');
+  });
 });
 
 
