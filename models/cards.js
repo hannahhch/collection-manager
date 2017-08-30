@@ -13,8 +13,5 @@ const postcardSchema = new mongoose.Schema({
 
 const Postcard = mongoose.model("Postcard", postcardSchema);
 
-let postcard = new Postcard();
-
-postcard.save();
 
 module.exports = Postcard;
