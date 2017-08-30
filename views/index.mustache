@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8">
   <title>Postcard Collection</title>
-<link rel="stylesheet" href="/static/styles.css">
+  <link rel="stylesheet" href="/static/styles.css">
   <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Open+Sans" rel="stylesheet">
   <script src="https://use.fontawesome.com/ffa41e3f0d.js"></script>
 </head>
 <body>
   <div class = "nav">
-      <div><p><a href = "http://localhost:3000/">
+      <div><p><a href = "/">
         <i class="fa fa-home" aria-hidden="true"></i> Home</a></p></div>
       <div><p><a href = "/new/">
         <i class="fa fa-plus" aria-hidden="true"></i> New</a></p></div>
-      <div><p><a href = "#">
+      <div><p><a href = "/map/">
         <i class="fa fa-map-marker" aria-hidden="true"></i> Map</a></p></div>
       </div>
   <div class = 'header'>
@@ -38,7 +38,7 @@
     {{/cards}}
   </div>
   <div class = "footer">
-    <div><h4>You have {{number}} postcards</h4></div>
+    <div><h4>You have {{number}} postcards in your collection. Nice job!</h4></div>
   </div>
 </body>
 </html>

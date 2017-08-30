@@ -26,6 +26,10 @@ app.get('/new', function(req,res){
   res.render('new_card');
 })
 
+app.get('/map', function(req,res){
+  res.render("map");
+})
+
 app.get('(/:id/)', function(req,res){
     Postcard.findOne({_id:req.params.id}).then(function(cards){
       res.render('single_postcard', {cards:cards});

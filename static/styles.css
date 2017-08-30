@@ -38,7 +38,6 @@ body{
   display: flex;
   justify-content: center;
   font-family: 'Open Sans', sans-serif;
-  text-transform: uppercase;
   font-weight: bold;
 
 }
@@ -55,12 +54,30 @@ body{
 
 .single-box{
   border: 1px solid #B6F0F7;
-  margin: 18px;
   width: 350px;
   height: 400px;
   text-align: center;
   padding: 15px;
   background-color: white;
+}
+
+.new-box-wrapper{
+  text-align: center;
+  margin-top: 25vh;
+}
+
+.new-box-wrapper input {
+  width: 250px;
+}
+
+.new-box-wrapper button {
+  border: none;
+  background-color: transparent;
+  color: #565656;
+}
+
+.new-box-wrapper button:hover{
+  border-bottom: solid 3px #B6F0F7;
 }
 
 .header{
