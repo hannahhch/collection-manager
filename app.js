@@ -33,9 +33,17 @@ app.get('/map', function(req,res){
 app.get('(/:id/)', function(req,res){
     Postcard.findOne({_id:req.params.id}).then(function(cards){
       res.render('single_postcard', {cards:cards});
-
     })
 });
+
+//WORKING ON EDITING
+app.post("(/:id/edit)", function(req,res){
+  Postcard.findOne({_id: req.params.id}).then(function(cards){
+    res.render('edit_card', {cards:cards});
+  })
+});
+
+
 
 //home page, get all post cards and display them
 app.get('/', function(req,res){
