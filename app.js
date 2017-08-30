@@ -40,31 +40,17 @@ app.post('/new', function(req,res){
   })
 });
 
-app.get('/:id', function(req,res){
-  Postcard.findOne({_id: req.params.id}).then(function(postcard){
-    res.render("postcard", {postcard:postcard});
+app.post('/:id/delete', function(req,res){
+  Postcard.deleteOne({_id:req.params.id}).then(function(postcard){
+    console.log(postcard);
+    res.redirect('/');
   })
-})
-
-app.get('/:id/new_state', function(req,res){
-  Postcard.findOne({_id: req.params.id}).then(function(postcard){
-    res.render("new_state", {postcard:postcard});
-  })
-})
-
-app.post('/:id/new_state', function (req,res){
-  Postcard.findOne({_id: req.params.id}).then(function(postcard){
-    postcard.location.push(req.body);
-    postcard.save().then(function(){
-      res.render("new_state", {postcard:postcard});
-    })
-  })
-})
+});
 
 
 app.get('/', function(req,res){
-    Postcard.find({}).then(function(cards){
-      res.render("index", {cards:cards});
+  Postcard.find({}).then(function(cards){
+    res.render("index", {cards:cards});
   })
 });
 
