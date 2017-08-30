@@ -4,6 +4,7 @@
   justify-content: space-around;
 }
 
+
 .box{
   border: 1px solid black;
   margin: 5px;
@@ -31,5 +32,4 @@ h2{
 
 p{
   font-family: 'Open Sans', sans-serif;
-
 }

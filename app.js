@@ -18,7 +18,7 @@ app.engine('mustache', mustache());
 app.set('views', './views');
 app.set('view engine', 'mustache');
 
-app.use(express.static(__dirname + '/public'));
+app.use('/static', express.static('static'));
 
 //get new post card page
 app.get('/new', function(req,res){
@@ -58,7 +58,7 @@ app.post('/:id/delete', function(req,res){
   })
 });
 
-//home page, get all post cards and display them 
+//home page, get all post cards and display them
 app.get('/', function(req,res){
   Postcard.find({}).then(function(cards){
     res.render("index", {cards:cards});
