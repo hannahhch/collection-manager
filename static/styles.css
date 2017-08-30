@@ -1,10 +1,19 @@
+body{
+  margin: 0;
+}
+
 .wrapper{
   display: flex;
   flex-direction: row;
   justify-content: space-around;
 }
 
-
+.nav{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  border-bottom: solid 1px black;
+}
 .box{
   border: 1px solid black;
   margin: 5px;
