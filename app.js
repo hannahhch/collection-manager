@@ -50,6 +50,7 @@ app.post("(/:id/edit)", function(req,res){
     {_id: req.params.id},
     {
       "name":req.body.name,
+      "image":req.body.image,
       "whoFrom":req.body.whoFrom,
       "location":[{
         "country": req.body.country,
@@ -77,11 +78,11 @@ app.get('/', function(req,res){
 
 
 
-
 //create a new postcard with the following information
 app.post('/new', function(req,res){
   Postcard.create({
     "name":req.body.name,
+    "image":req.body.image,
     "whoFrom":req.body.whoFrom,
     "location":[{
       "country": req.body.country,

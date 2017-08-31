@@ -5,6 +5,12 @@ body{
   background-size: cover;
 }
 
+.box img{
+  max-width: 75px;
+  height: auto;
+}
+
+
 .wrapper{
   display: flex;
   flex-wrap: wrap;
