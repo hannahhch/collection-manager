@@ -25,20 +25,20 @@
         <div class = 'new-box-wrapper'>
         <form action = "/{{_id}}/edit" method = "post">
           <p>
-            <input type = "text" id = "name" name = "name" placeholder="{{name}}"required />
+            <input type = "text" id = "name" name = "name" value="{{name}}"plcaeholder = "name:"required />
           </p>
           <p>
-            <input type = "text" id = "image" name = "image" placeholder="Image"/>
+            <input type = "text" id = "image" name = "image"value = "{{image}}" placeholder="Image"/>
           </p>
           <p>
-            <input type = "text" id = "whoFrom" name = "whoFrom" placeholder="{{whoFrom}}"/>
+            <input type = "text" id = "whoFrom" name = "whoFrom" value="{{whoFrom}}" placeholder="from:"/>
           </p>
           <p>
             {{#location}}
-            <input type="text" id="state" name="state" placeholder="{{state}}">
+            <input type="text" id="state" name="state" value="{{state}}" placeholder="city, state:">
           </p>
           <p>
-            <input type = "text" id = "country" name = "country" placeholder="{{country}}">
+            <input type = "text" id = "country" name = "country" value="{{country}}" placeholder="country:">
           </p>
           <p>
             <button type = "submit">submit</button>
