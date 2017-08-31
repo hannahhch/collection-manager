@@ -10,7 +10,7 @@ const DUPLICATE_RECORD_ERROR = 11000;
 
 //const mongoURL = 'mongodb://localhost:27017/test';
 
-const mongoURL = process.env.MONGODB_URL;
+const mongoURL = process.env.MONGODB_URI;
 
 mongoose.connect(mongoURL, {useMongoClient: true});
 mongoose.Promise = require('bluebird');
