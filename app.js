@@ -8,7 +8,9 @@ const mongoose = require('mongoose');
 const Postcard = require('./models/cards');
 const DUPLICATE_RECORD_ERROR = 11000;
 
-const mongoURL = 'mongodb://localhost:27017/test';
+//const mongoURL = 'mongodb://localhost:27017/test';
+
+const mongoURL = process.env.MONGODB_URL;
 
 mongoose.connect(mongoURL, {useMongoClient: true});
 mongoose.Promise = require('bluebird');
