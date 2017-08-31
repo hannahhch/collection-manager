@@ -6,10 +6,33 @@ body{
 }
 
 .box img{
-  max-width: 75px;
+  max-width: 90px;
   height: auto;
 }
 
+.large img{
+  max-width: 350px;
+  height:auto;
+}
+
+.form-buttons{
+  display: inline-block;
+}
+
+.form-buttons button{
+  width: 60px;
+  border: none;
+  background-color: transparent;
+  color: #565656;
+  font-size: 15px;
+  text-decoration: underline;
+}
+
+.form-buttons button:hover{
+  color: #B6F0F7;
+  cursor: pointer;
+
+}
 
 .wrapper{
   display: flex;
@@ -52,7 +75,7 @@ body{
   border: 2px solid #B6F0F7;
   margin: 15px;
   width: 250px;
-  height: 300px;
+  height: 350px;
   text-align: center;
   padding: 15px;
   background-color: white;

@@ -28,11 +28,11 @@
       <p>{{state}}</p>
       <p>{{country}}</p>
       {{/location}}
-      <p><strong>From:</strong> {{whoFrom}}</p>
-      <form action = '/{{_id}}/edit' method="get">
+      <p><em>From: {{whoFrom}}</em></p>
+      <form action = '/{{_id}}/edit' method="get" class = "form-buttons">
         <button type="submit">Edit</button>
       </form>
-      <form action = '/{{_id}}/delete' method = "post">
+      <form action = '/{{_id}}/delete' method = "post" class = "form-buttons">
         <button type="submit">Delete</button>
       </form>
     </div>
