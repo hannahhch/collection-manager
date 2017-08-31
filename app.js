@@ -8,13 +8,13 @@ const mongoose = require('mongoose');
 const Postcard = require('./models/cards');
 const DUPLICATE_RECORD_ERROR = 11000;
 
-//const mongoURL = 'mongodb://localhost:27017/test';
+//const mongoURL = 'mongodb://localhost:27017/test'; //this is what I used locally
 
+//this is was I use now for the app to work with heroku
 const mongoURL = process.env.MONGODB_URI;
 
 mongoose.connect(mongoURL, {useMongoClient: true});
 mongoose.Promise = require('bluebird');
-
 app.use(bodyParser.urlencoded({ extended:true }));
 
 app.engine('mustache', mustache());
@@ -117,6 +117,7 @@ app.post('/:id/delete', function(req,res){
 
 module.exports = app;
 
+//the listener has also been changed to work locally with heroku
 app.listen(process.env.PORT || 8000, function(){
   console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
 });
