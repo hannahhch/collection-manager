@@ -26,17 +26,19 @@ app.get('/new', function(req,res){
   res.render('new_card');
 })
 
+//render map page
 app.get('/map', function(req,res){
   res.render("map");
 })
 
+//get the postcards ID, and render single_postcard page
 app.get('(/:id/)', function(req,res){
     Postcard.findOne({_id:req.params.id}).then(function(cards){
       res.render('single_postcard', {cards:cards});
     })
 });
 
-//WORKING ON EDITING
+//edit a card: get the card ID and render edit page
 app.get("/:id/edit", function(req,res){
   let cards = Postcard.findOne({_id: req.params.id})
   .then(function(cards){
@@ -44,6 +46,7 @@ app.get("/:id/edit", function(req,res){
   })
 });
 
+//edit a card: Update the information
 app.post("(/:id/edit)", function(req,res){
   //let cards = Postcard.findOne({_id: req.params.id})
   Postcard.updateOne(
@@ -57,12 +60,11 @@ app.post("(/:id/edit)", function(req,res){
         "state": req.body.state
       }]
     }
-  )
+  )//redirect back home
   .then(function (update) {
     res.redirect('/');
   });
 });
-
 
 
 //home page, get all post cards and display them
@@ -75,8 +77,6 @@ app.get('/', function(req,res){
     res.render("index", {cards:results[1], number:results[0]});
   })
 });
-
-
 
 //create a new postcard with the following information
 app.post('/new', function(req,res){
@@ -111,9 +111,6 @@ app.post('/:id/delete', function(req,res){
     res.redirect('/');
   })
 });
-
-
-
 
 
 module.exports = app;
